@@ -28,11 +28,12 @@ jobs:
         run: npm ci
       - name: Run server
         # shell: bash # defauly shell
-        run: npm start & npx wait-on http://127.0.0.1:$PORT
+        run: npm start & npx wait-on http://127.0.0.1:$PORT # Waits until your app is reachable on that URL before continuing
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+        # run: echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" # colon (:) inside confuses the e YAML parser
+        run: 'echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"' # or use multi line (|)
   deploy:
     needs: test
     runs-on: ubuntu-latest
