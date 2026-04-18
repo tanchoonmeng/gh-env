@@ -40,5 +40,9 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" # show empty env value
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
+      - name: Output information (step env)
+        env:
+          STEP_ENV: 100
+        run: 'echo "MONGODB_USERNAME: ${{ env.STEP_ENV }}"'
