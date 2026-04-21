@@ -12,8 +12,8 @@ jobs:
     env:
       # MONGODB_DB_NAME: gh-demo2 # override same env declared at workflow level
       MONGODB_CLUSTER_ADDRESS: cluster0.cvkliap.mongodb.net
-      MONGODB_USERNAME: choonmengtansg_db_user
-      MONGODB_PASSWORD: pyVQkP3dZQHudMbC
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
